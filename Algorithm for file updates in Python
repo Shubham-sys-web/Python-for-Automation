@@ -1,0 +1,34 @@
+#step 1: Assign `import_file` to the name of the file 
+import_file = "allow_list.txt"
+
+#step 2: Assign `remove_list` to a list of IP addresses that are no longer allowed to access restricted information. 
+
+remove_list = ["192.168.97.225", "192.168.158.170", "192.168.201.40", "192.168.58.57"]
+
+#step 3: Read the file contents
+with open(import_file, "r") as file:
+    ip_addresses = file.read()
+
+#step 4: Use `.split()` to convert `ip_addresses` from a string to a list
+ip_addresses = ip_addresses.split()
+
+#step 5: Build iterative statement
+#step 6 then current element should be removed from `ip_addresses`
+
+for element in ip_addresses:
+    if ip_addresses in remove_list:
+        ip_addresses.remove(element)
+
+# Step 7: Convert back to string
+ip_addresses = " ".join(ip_addresses)
+
+# Step 8: Write updated content back to file
+with open(import_file, "w") as file:
+    file.write(ip_addresses)
+
+# step 9:  Print to verify
+with open(import_file, "r") as file:
+    print (file.read())
+    
+    
+
